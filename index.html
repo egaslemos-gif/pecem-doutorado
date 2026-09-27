@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Candidatura - Doutorado PECEM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <h1>PECEM <span>Doutorado</span></h1>
+                    <p>Guia Interativo de Candidatura (PCI UNILICUNGO/UEL)</p>
+                </div>
+                <div class="progress-area">
+                    <span id="progress-text">0% Concluído</span>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="alerts-section" id="alerts-container">
+                <!-- Alerts will be dynamically generated here -->
+            </section>
+
+            <div class="dashboard-grid">
+                <!-- Checklist Section -->
+                <section class="card checklist-card">
+                    <h2><i class="fa-solid fa-list-check"></i> Checklist de Documentos</h2>
+                    <p class="subtitle">Acompanhe os documentos necessários para a inscrição.</p>
+                    
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="previsto">Previstos</button>
+                        <button class="filter-btn" data-filter="processo">Em Processo</button>
+                        <button class="filter-btn" data-filter="concluido">Concluídos</button>
+                    </div>
+
+                    <div class="task-list" id="task-list">
+                        <!-- Tasks generated via JS -->
+                    </div>
+                </section>
+
+                <!-- Guidelines Section -->
+                <div class="info-column">
+                    <section class="card guidelines-card">
+                        <h2><i class="fa-solid fa-map-location-dot"></i> Etapas da Seleção</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h3>1ª Etapa: Prova de Redação (Eliminatória)</h3>
+                                <p class="date"><i class="fa-regular fa-calendar"></i> 19 de Janeiro de 2027 (08h30 - 12h30)</p>
+                                <p>Realizada online (Google Classroom). Duração de 4 horas. Temas baseados em Ensino de Ciências e Matemática. Nota mínima: 7,0.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h3>2ª Etapa: Análise e Arguição (Eliminatória)</h3>
+                                <p class="date"><i class="fa-regular fa-calendar"></i> 15 a 26 de Fevereiro de 2027</p>
+                                <p>Análise do Currículo Lattes e Projeto de Pesquisa. Arguição remota via Google Meet. Nota mínima: 7,0.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card vacancies-card">
+                        <h2><i class="fa-solid fa-user-graduate"></i> Vagas Ofertadas (Doutorado)</h2>
+                        <ul class="vacancy-list">
+                            <li><span class="area biology">Biologia</span> 3 Vagas (Prof. Álvaro, Profa. Andreia, Profa. Mariana)</li>
+                            <li><span class="area math">Matemática</span> 4 Vagas (Prof. Bruno, Profa. Márcia, Profa. Pamela, Profa. Regina)</li>
+                            <li><span class="area chemistry">Química</span> 2 Vagas (Profa. Fabiele, Prof. Moisés)</li>
+                            <li><span class="area physics">Física</span> 2 Vagas (Prof. Gustavo, Profa. Irinéa)</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            
+            <section class="card rules-card mt-4">
+                 <h2><i class="fa-solid fa-circle-exclamation"></i> Regras Importantes do Edital</h2>
+                 <div class="rules-grid">
+                     <div class="rule-box">
+                         <i class="fa-solid fa-file-pdf"></i>
+                         <h4>Formato de Arquivos</h4>
+                         <p>Todos os documentos devem ser enviados em formato <strong>PDF</strong>. Máximo de 10MB por arquivo. Não compactar.</p>
+                     </div>
+                     <div class="rule-box">
+                         <i class="fa-brands fa-google"></i>
+                         <h4>Conta Google</h4>
+                         <p>É obrigatório o uso de um e-mail <strong>@gmail.com</strong> para cadastro no Google Forms e acesso ao Google Classroom.</p>
+                     </div>
+                     <div class="rule-box">
+                         <i class="fa-solid fa-file-signature"></i>
+                         <h4>Projeto de Pesquisa</h4>
+                         <p>Máx 10 pág. Papel A4, Times New Roman 12. Tópicos: Título, Problema, Justificativa, Objetivos, Metodologia, Referências.</p>
+                     </div>
+                 </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Guia Interativo desenvolvido para auxiliar na candidatura ao Doutorado em Ensino de Ciências e Educação Matemática (PECEM).</p>
+        </footer>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
