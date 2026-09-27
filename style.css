@@ -217,6 +217,26 @@ body {
 .status-future .event-countdown { background: #f1f5f9; color: #475569; }
 .status-past .event-countdown { background: #f1f5f9; color: #475569; text-decoration: line-through; }
 
+.event-progress {
+    background: #f1f2f6;
+    height: 6px;
+    border-radius: 3px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.event-progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: width 1s linear;
+}
+
+.status-urgent .event-progress-fill { background: var(--evt-urgent); }
+.status-active .event-progress-fill { background: var(--evt-active); }
+.status-future .event-progress-fill { background: var(--evt-future); }
+.status-past .event-progress-fill { background: var(--evt-past); }
+
 /* Cards & Layout */
 .dashboard-grid {
     display: grid;

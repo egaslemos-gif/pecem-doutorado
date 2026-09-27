@@ -175,6 +175,9 @@ function initCronogramaUI() {
             <div class="event-countdown" id="countdown-${event.id}">
                 <!-- Injected via JS -->
             </div>
+            <div class="event-progress">
+                <div class="event-progress-fill" id="progress-${event.id}"></div>
+            </div>
         `;
         container.appendChild(div);
     });
@@ -189,19 +192,30 @@ function updateCountdowns() {
         
         const eventEl = document.getElementById(event.id);
         const countdownEl = document.getElementById(`countdown-${event.id}`);
-        if(!eventEl || !countdownEl) return;
+        const progressEl = document.getElementById(`progress-${event.id}`);
+        if(!eventEl || !countdownEl || !progressEl) return;
 
         // Reset classes
         eventEl.classList.remove('status-future', 'status-active', 'status-urgent', 'status-past');
         
+        const totalDuration = end - start;
+        
         if (now > end) {
             eventEl.classList.add('status-past');
             countdownEl.innerHTML = `✅ Prazo Encerrado`;
+            progressEl.style.width = '100%';
             return;
         }
         
         if (now >= start && now <= end) {
             const timeRemaining = end - now;
+            const elapsed = now - start;
+            let percent = (elapsed / totalDuration) * 100;
+            if (percent < 0) percent = 0;
+            if (percent > 100) percent = 100;
+            
+            progressEl.style.width = `${percent}%`;
+            
             const t = getTimeObjects(timeRemaining);
             
             if (t.d <= 3) {
@@ -215,6 +229,7 @@ function updateCountdowns() {
         }
         
         if (now < start) {
+            progressEl.style.width = '0%';
             const timeUntilStart = start - now;
             const t = getTimeObjects(timeUntilStart);
             
