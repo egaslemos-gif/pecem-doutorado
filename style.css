@@ -602,3 +602,80 @@ footer {
         width: 100%;
     }
 }
+
+/* Details Toggle Button */
+.details-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-btn:hover {
+    background: #eff6ff;
+    transform: scale(1.1);
+}
+
+/* Checklist specific styles */
+.task-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+
+.task-info {
+    width: 100%;
+    margin-right: 15px;
+}
+
+.task-prazo {
+    font-size: 0.85rem;
+    color: var(--status-processo);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fffbeb;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.task-desc {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    animation: fadeIn 0.3s ease;
+}
+
+.task-desc p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Event specific styles */
+.event-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    background: #f8fafc;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

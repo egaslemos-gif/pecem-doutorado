@@ -3,63 +3,71 @@ const checklistData = [
         id: "task-1",
         title: "Preencher Formulário de Inscrição (Google Forms)",
         desc: "Obrigatório o uso de e-mail @gmail.com. <br><a href='https://forms.gle/Ep2ryPzkXLkrGUSL9' target='_blank' class='task-link'><i class='fa-solid fa-arrow-up-right-from-square'></i> Acessar Formulário</a>",
-        status: "previsto"
+        status: "previsto",
+        prazo: "01 de Nov, 2026"
     },
     {
         id: "task-2",
         title: "Digitalizar NUIT",
         desc: "Cópia digitalizada do Número de Identificação Tributária.",
-        status: "previsto"
+        status: "previsto",
+        prazo: "01 de Nov, 2026"
     },
     {
         id: "task-3",
         title: "Histórico Escolar da Graduação",
         desc: "Cópia digitalizada legível em formato PDF.",
-        status: "previsto"
+        status: "previsto",
+        prazo: "01 de Nov, 2026"
     },
     {
         id: "task-4",
         title: "Diploma de Graduação",
         desc: "Cópia digitalizada (frente e verso) em PDF.",
-        status: "previsto"
+        status: "previsto",
+        prazo: "01 de Nov, 2026"
     },
     {
         id: "task-5",
         title: "Currículo Lattes Documentado",
         desc: "Exportar cópia RTF. Anexar todos os certificados em arquivo único (PDF). <br><a href='https://lattes.cnpq.br/' target='_blank' class='task-link'><i class='fa-solid fa-arrow-up-right-from-square'></i> Acessar Plataforma Lattes</a>",
-        status: "previsto"
+        status: "previsto",
+        prazo: "01 de Nov, 2026"
     },
     {
         id: "task-6",
         title: "Projeto de Pesquisa",
         desc: "Máx 10 págs. Papel A4, Times New Roman 12. Áreas: Ed. Matemática, Ensino de Ciências ou História/Filosofia da Ciência.",
-        status: "previsto"
+        status: "previsto",
+        prazo: "01 de Nov, 2026"
     },
     {
         id: "task-7",
         title: "Histórico Escolar do Mestrado",
         desc: "Cópia digitalizada legível em formato PDF.",
-        status: "previsto"
+        status: "previsto",
+        prazo: "01 de Nov, 2026"
     },
     {
         id: "task-8",
         title: "Diploma de Mestre",
         desc: "Frente e verso ou certificado de previsão de defesa.",
-        status: "previsto"
+        status: "previsto",
+        prazo: "01 de Nov, 2026"
     }
 ];
 
 const cronograma = [
-    { id: "evt-1", title: "Inscrições Abertas (Forms)", start: "2026-09-28T00:00:00", end: "2026-11-01T23:59:59" },
-    { id: "evt-2", title: "Divulgação da Homologação", start: "2026-11-13T16:00:00", end: "2026-11-15T23:59:59" },
-    { id: "evt-3", title: "Inserção no Google Classroom", start: "2026-11-16T00:00:00", end: "2026-11-20T23:59:59" },
-    { id: "evt-4", title: "Limite de Entrada no Classroom", start: "2026-11-21T00:00:00", end: "2026-11-21T19:00:00" },
-    { id: "evt-5", title: "1ª Etapa (Prova de Redação)", start: "2027-01-19T08:30:00", end: "2027-01-19T12:30:00" },
-    { id: "evt-6", title: "Resultado 1ª Etapa", start: "2027-02-12T16:00:00", end: "2027-02-14T23:59:59" },
-    { id: "evt-7", title: "2ª Etapa (Análises e Arguição)", start: "2027-02-15T00:00:00", end: "2027-02-26T23:59:59" },
-    { id: "evt-8", title: "Resultado Final", start: "2027-03-05T00:00:00", end: "2027-03-07T23:59:59" },
-    { id: "evt-9", title: "Solicitação de Matrícula", start: "2027-03-08T00:00:00", end: "2027-03-12T23:59:59" },
-    { id: "evt-10", title: "Confirmação (Upload Docs)", start: "2027-03-22T00:00:00", end: "2027-03-23T23:59:59" }
+    { id: "evt-1", title: "Inscrições Abertas (Forms)", start: "2026-09-28T00:00:00", end: "2026-11-01T23:59:59", desc: "Período para preenchimento do formulário online e envio da documentação exigida." },
+    { id: "evt-2", title: "Divulgação da Homologação", start: "2026-11-13T16:00:00", end: "2026-11-15T23:59:59", desc: "Publicação da lista de inscrições deferidas e indeferidas." },
+    { id: "evt-3", title: "Inserção no Google Classroom", start: "2026-11-16T00:00:00", end: "2026-11-20T23:59:59", desc: "Candidatos homologados receberão convite para acessar o ambiente virtual." },
+    { id: "evt-4", title: "Limite de Entrada no Classroom", start: "2026-11-21T00:00:00", end: "2026-11-21T19:00:00", desc: "Prazo final para aceitar o convite e entrar na turma do Classroom." },
+    { id: "evt-5", title: "1ª Etapa (Prova de Redação)", start: "2027-01-19T08:30:00", end: "2027-01-19T12:30:00", desc: "Prova eliminatória sobre Ensino de Ciências e Matemática. Duração: 4 horas." },
+    { id: "evt-6", title: "Resultado 1ª Etapa", start: "2027-02-12T16:00:00", end: "2027-02-14T23:59:59", desc: "Divulgação das notas da Prova de Redação (Mínimo: 7,0)." },
+    { id: "evt-7", title: "2ª Etapa (Análises e Arguição)", start: "2027-02-15T00:00:00", end: "2027-02-26T23:59:59", desc: "Avaliação do currículo, projeto e entrevista remota via Google Meet." },
+    { id: "evt-8", title: "Resultado Final", start: "2027-03-05T00:00:00", end: "2027-03-07T23:59:59", desc: "Publicação da lista de aprovados no processo seletivo." },
+    { id: "evt-9", title: "Solicitação de Matrícula", start: "2027-03-08T00:00:00", end: "2027-03-12T23:59:59", desc: "Período para solicitar a matrícula institucional nos prazos estabelecidos." },
+    { id: "evt-10", title: "Confirmação (Upload Docs)", start: "2027-03-22T00:00:00", end: "2027-03-23T23:59:59", desc: "Envio da documentação complementar para confirmação da matrícula." }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -76,6 +84,7 @@ function initChecklist() {
     // In case we added new links/descriptions to the base data, merge it to avoid overriding with old localstorage.
     tasks.forEach((task, index) => {
         task.desc = checklistData[index].desc;
+        task.prazo = checklistData[index].prazo;
     });
     
     renderTasks(tasks);
@@ -103,8 +112,16 @@ function renderTasks(tasks) {
 
         div.innerHTML = `
             <div class="task-info">
-                <h4>${task.title}</h4>
-                <p>${task.desc}</p>
+                <div class="task-header-row">
+                    <h4>${task.title}</h4>
+                    <button class="details-btn" onclick="toggleDetails('desc-${task.id}')" title="Ver Detalhes">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                </div>
+                <div class="task-prazo"><i class="fa-regular fa-calendar"></i> Prazo: ${task.prazo}</div>
+                <div class="task-desc" id="desc-${task.id}" style="display: none;">
+                    <p>${task.desc}</p>
+                </div>
             </div>
             <div class="task-status">
                 <select class="status-select" onchange="changeStatus('${task.id}', this.value)">
@@ -167,6 +184,12 @@ function initCronogramaUI() {
         div.innerHTML = `
             <div class="event-header">
                 <div class="event-title">${event.title}</div>
+                <button class="details-btn" onclick="toggleDetails('evt-desc-${event.id}')" title="Ver Detalhes">
+                    <i class="fa-solid fa-circle-info"></i>
+                </button>
+            </div>
+            <div class="event-desc" id="evt-desc-${event.id}" style="display: none;">
+                <p>${event.desc}</p>
             </div>
             <div class="event-dates">
                 <span><i class="fa-solid fa-play"></i> ${start.toLocaleDateString('pt-BR', formatOptions)}</span>
@@ -257,4 +280,13 @@ function formatTime(t) {
         return `${t.d}d ${t.h.toString().padStart(2, '0')}h ${t.m.toString().padStart(2, '0')}m ${t.s.toString().padStart(2, '0')}s`;
     }
     return `${t.h.toString().padStart(2, '0')}h ${t.m.toString().padStart(2, '0')}m ${t.s.toString().padStart(2, '0')}s`;
+}
+
+function toggleDetails(elementId) {
+    const el = document.getElementById(elementId);
+    if (el.style.display === "none") {
+        el.style.display = "block";
+    } else {
+        el.style.display = "none";
+    }
 }
