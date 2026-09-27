@@ -49,17 +49,63 @@ const checklistData = [
     }
 ];
 
-const importantDates = [
-    { date: "2026-09-28", endDate: "2026-11-01", title: "Inscrições Abertas", desc: "Envio de documentos via Google Forms até 23h59min (Brasília).", urgentDays: 5 },
-    { date: "2026-11-13", title: "Homologação", desc: "Divulgação da homologação das inscrições (após as 16h00).", urgentDays: 2 },
-    { date: "2026-11-21", title: "Google Classroom", desc: "Data limite para entrada na sala de aula virtual (até 19h00).", urgentDays: 2 },
-    { date: "2027-01-19", title: "1ª Etapa: Prova", desc: "Prova de redação eliminatória (08h30).", urgentDays: 7 },
-    { date: "2027-02-15", endDate: "2027-02-26", title: "2ª Etapa", desc: "Análise Lattes, Projeto e Arguição via Meet.", urgentDays: 7 }
+// Precision dates from the edital PDF
+const cronograma = [
+    { 
+        title: "Inscrições Abertas (Forms)", 
+        start: "2026-09-28T00:00:00", 
+        end: "2026-11-01T23:59:59" 
+    },
+    { 
+        title: "Divulgação da Homologação", 
+        start: "2026-11-13T16:00:00", 
+        end: "2026-11-15T23:59:59" 
+    },
+    { 
+        title: "Inserção no Google Classroom", 
+        start: "2026-11-16T00:00:00", 
+        end: "2026-11-20T23:59:59" 
+    },
+    { 
+        title: "Limite de Entrada no Classroom", 
+        start: "2026-11-21T00:00:00", 
+        end: "2026-11-21T19:00:00" 
+    },
+    { 
+        title: "1ª Etapa (Prova de Redação)", 
+        start: "2027-01-19T08:30:00", 
+        end: "2027-01-19T12:30:00" 
+    },
+    { 
+        title: "Resultado 1ª Etapa", 
+        start: "2027-02-12T16:00:00", 
+        end: "2027-02-14T23:59:59" 
+    },
+    { 
+        title: "2ª Etapa (Análises e Arguição)", 
+        start: "2027-02-15T00:00:00", 
+        end: "2027-02-26T23:59:59" 
+    },
+    { 
+        title: "Resultado Final", 
+        start: "2027-03-05T00:00:00", 
+        end: "2027-03-07T23:59:59" 
+    },
+    { 
+        title: "Solicitação de Matrícula", 
+        start: "2027-03-08T00:00:00", 
+        end: "2027-03-12T23:59:59" 
+    },
+    { 
+        title: "Confirmação (Upload Docs)", 
+        start: "2027-03-22T00:00:00", 
+        end: "2027-03-23T23:59:59" 
+    }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
     initChecklist();
-    initAlerts();
+    initCronograma();
 });
 
 function initChecklist() {
@@ -149,65 +195,79 @@ function filterTasks(filter) {
     });
 }
 
-function initAlerts() {
-    const container = document.getElementById("alerts-container");
-    // Simulate current date based on context (Sep 27, 2026)
-    const today = new Date("2026-09-27T00:00:00");
+// ---- Inteligência do Cronograma ----
+
+function initCronograma() {
+    const container = document.getElementById("events-container");
+    // Obter data atual do sistema (usando a data real)
+    const today = new Date();
     
-    let activeAlerts = 0;
+    container.innerHTML = "";
 
-    importantDates.forEach(item => {
-        const eventDate = new Date(item.date + "T00:00:00");
-        let isUrgent = false;
-        let show = false;
-
-        // Calculate diff in days
-        const diffTime = Math.abs(eventDate - today);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-        if (eventDate >= today && diffDays <= 30) {
-            show = true;
-            if (diffDays <= item.urgentDays) {
-                isUrgent = true;
-            }
-        }
+    cronograma.forEach(event => {
+        const start = new Date(event.start);
+        const end = new Date(event.end);
         
-        // If it has an end date, check if we are in the period
-        if (item.endDate) {
-             const endDate = new Date(item.endDate + "T23:59:59");
-             if (today >= eventDate && today <= endDate) {
-                 show = true;
-                 isUrgent = true; // Urgent if currently happening
-             }
-        }
-
-        if (show) {
-            const div = document.createElement("div");
-            div.className = `alert-box ${isUrgent ? 'urgent' : ''}`;
-            
-            const icon = isUrgent ? 'fa-triangle-exclamation' : 'fa-bell';
-            
-            div.innerHTML = `
-                <i class="fa-solid ${icon}"></i>
-                <div>
-                    <strong>${item.title}</strong>
-                    <p>${item.desc}</p>
-                </div>
-            `;
-            container.appendChild(div);
-            activeAlerts++;
-        }
-    });
-
-    if (activeAlerts === 0) {
-        container.innerHTML = `
-            <div class="alert-box" style="border-left-color: var(--text-muted); background: rgba(148, 163, 184, 0.1);">
-                <i class="fa-regular fa-calendar-check" style="color: var(--text-muted)"></i>
-                <div>
-                    <strong>Sem eventos próximos</strong>
-                    <p>Fique tranquilo, nenhuma data limite se aproxima nos próximos 30 dias.</p>
-                </div>
+        const { status, message } = calculateEventStatus(today, start, end);
+        
+        const formatOptions = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+        const startStr = start.toLocaleDateString('pt-BR', formatOptions);
+        const endStr = end.toLocaleDateString('pt-BR', formatOptions);
+        
+        const div = document.createElement("div");
+        div.className = `event-box status-${status}`;
+        
+        div.innerHTML = `
+            <div class="event-header">
+                <div class="event-title">${event.title}</div>
+            </div>
+            <div class="event-dates">
+                <span><i class="fa-solid fa-play"></i> Início: ${startStr}</span>
+                <span><i class="fa-solid fa-flag-checkered"></i> Fim: ${endStr}</span>
+            </div>
+            <div class="event-countdown">
+                ${message}
             </div>
         `;
+        
+        container.appendChild(div);
+    });
+}
+
+function calculateEventStatus(now, start, end) {
+    const msInDay = 1000 * 60 * 60 * 24;
+    
+    // Passado
+    if (now > end) {
+        return { status: "past", message: "✅ Prazo Encerrado" };
+    }
+    
+    // Ativo e Acontecendo
+    if (now >= start && now <= end) {
+        const timeRemaining = end - now;
+        const daysRemaining = Math.floor(timeRemaining / msInDay);
+        const hoursRemaining = Math.floor((timeRemaining % msInDay) / (1000 * 60 * 60));
+        
+        if (daysRemaining <= 3) {
+            // Urgente!
+            if (daysRemaining === 0) {
+                 return { status: "urgent", message: `🔥 Atenção: Termina em ${hoursRemaining} hora(s)!` };
+            }
+            return { status: "urgent", message: `⚠️ Atenção: Faltam apenas ${daysRemaining} dias!` };
+        } else {
+            return { status: "active", message: `🟢 Em andamento (Faltam ${daysRemaining} dias)` };
+        }
+    }
+    
+    // Futuro
+    if (now < start) {
+        const timeUntilStart = start - now;
+        const daysUntil = Math.floor(timeUntilStart / msInDay);
+        
+        if (daysUntil <= 10) {
+             return { status: "future", message: `🔜 Começa em ${daysUntil} dia(s)` };
+        } else {
+             return { status: "future", message: `Aguardando período (${daysUntil} dias)` };
+        }
     }
 }

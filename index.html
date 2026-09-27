@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -28,15 +28,23 @@
         </header>
 
         <main>
-            <section class="alerts-section" id="alerts-container">
-                <!-- Alerts will be dynamically generated here -->
+            <!-- Cronograma Inteligente -->
+            <section class="card cronograma-card">
+                <div class="cronograma-header">
+                    <h2><i class="fa-solid fa-stopwatch"></i> Painel de Prazos e Cronograma</h2>
+                    <p class="subtitle">Acompanhe as datas do edital com rigor. Prazos próximos são destacados automaticamente.</p>
+                </div>
+                
+                <div class="events-grid" id="events-container">
+                    <!-- Events dynamically rendered by JS -->
+                </div>
             </section>
 
             <div class="dashboard-grid">
                 <!-- Checklist Section -->
                 <section class="card checklist-card">
                     <h2><i class="fa-solid fa-list-check"></i> Checklist de Documentos</h2>
-                    <p class="subtitle">Acompanhe os documentos necessários para a inscrição.</p>
+                    <p class="subtitle">Gerencie os documentos necessários para a inscrição.</p>
                     
                     <div class="filters">
                         <button class="filter-btn active" data-filter="all">Todos</button>
