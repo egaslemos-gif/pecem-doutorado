@@ -3,129 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PECEM - Guia de Candidatura</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <title>Guia de Candidatura - Doutorado PECEM</title>
+    <link rel="stylesheet" href="style.css?v=4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="window-wrapper">
-        <div class="app-sidebar">
-            <div class="sidebar-logo"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div class="sidebar-menu">
-                <a href="#" class="active"><i class="fa-solid fa-border-all"></i></a>
-                <a href="#"><i class="fa-regular fa-calendar"></i></a>
-                <a href="#"><i class="fa-solid fa-list-check"></i></a>
-                <a href="#"><i class="fa-solid fa-circle-exclamation"></i></a>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <h1>PECEM <span>Doutorado</span></h1>
+                    <p>Guia Interativo de Candidatura (PCI UNILICUNGO/UEL)</p>
+                </div>
+                <div class="progress-area">
+                    <span id="progress-text">0% Concluído</span>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                </div>
             </div>
-            <div class="sidebar-profile">
-                <img src="https://ui-avatars.com/api/?name=Candidato&background=6c5ce7&color=fff" alt="User">
-            </div>
-        </div>
+        </header>
 
-        <div class="app-main">
-            <!-- Header section -->
-            <header class="top-header">
-                <div class="header-title">
-                    <p class="greeting">Olá, Candidato(a)</p>
-                    <h1>PECEM Doutorado</h1>
+        <main>
+            <!-- Cronograma Inteligente -->
+            <section class="card cronograma-card">
+                <div class="cronograma-header">
+                    <h2><i class="fa-solid fa-stopwatch"></i> Painel de Prazos e Cronograma</h2>
+                    <p class="subtitle">Acompanhe as datas do edital com rigor. Prazos próximos são destacados automaticamente.</p>
                 </div>
-                <div class="header-actions">
-                    <div class="progress-pill">
-                        <span id="progress-text">0% Concluído</span>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" id="progress-fill"></div>
-                        </div>
-                    </div>
-                    <button class="icon-btn"><i class="fa-solid fa-ellipsis"></i></button>
+                
+                <div class="events-grid" id="events-container">
+                    <!-- Events dynamically rendered by JS -->
                 </div>
-            </header>
+            </section>
 
-            <div class="dashboard-content">
-                <!-- Left Column (Checklist) -->
-                <div class="column-left">
-                    <div class="card checklist-card">
-                        <div class="card-header">
-                            <h2>Documentos Necessários</h2>
-                            <button class="icon-btn-small"><i class="fa-solid fa-ellipsis"></i></button>
-                        </div>
-                        
-                        <div class="filters">
-                            <button class="filter-btn active" data-filter="all">Todos</button>
-                            <button class="filter-btn" data-filter="previsto">Previsto</button>
-                            <button class="filter-btn" data-filter="processo">Em Processo</button>
-                            <button class="filter-btn" data-filter="concluido">Concluído</button>
-                        </div>
-
-                        <div class="task-list" id="task-list">
-                            <!-- Injected by JS -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Middle/Right Column (Timeline & Info) -->
-                <div class="column-right">
-                    <!-- Cronograma -->
-                    <div class="card timeline-card">
-                        <div class="card-header">
-                            <h2>Cronograma e Prazos</h2>
-                            <button class="icon-btn-small"><i class="fa-solid fa-xmark"></i></button>
-                        </div>
-                        <div class="events-list" id="events-container">
-                            <!-- Injected by JS -->
-                        </div>
-                    </div>
+            <div class="dashboard-grid">
+                <!-- Checklist Section -->
+                <section class="card checklist-card">
+                    <h2><i class="fa-solid fa-list-check"></i> Checklist de Documentos</h2>
+                    <p class="subtitle">Gerencie os documentos necessários para a inscrição.</p>
                     
-                    <!-- Regras e Etapas -->
-                    <div class="info-row">
-                        <div class="card rules-card">
-                            <div class="card-header">
-                                <h2>Regras Gerais</h2>
-                                <i class="fa-solid fa-expand icon-expand"></i>
-                            </div>
-                            <div class="chat-bubble">
-                                <p><strong>Formato:</strong> PDF (Max 10MB). Não compactar.</p>
-                            </div>
-                            <div class="chat-bubble right">
-                                <p><strong>E-mail:</strong> Obrigatório usar @gmail.com no formulário.</p>
-                            </div>
-                            <div class="chat-bubble">
-                                <p><strong>Projeto:</strong> Max 10 pág, papel A4, Arial/Times 12.</p>
-                            </div>
-                        </div>
-
-                        <div class="card steps-card">
-                            <div class="card-header">
-                                <h2>Etapas da Seleção</h2>
-                                <button class="icon-btn-small"><i class="fa-solid fa-ellipsis"></i></button>
-                            </div>
-                            <div class="lecture-list">
-                                <div class="lecture-item">
-                                    <button class="play-btn"><i class="fa-solid fa-pen"></i></button>
-                                    <div class="lecture-info">
-                                        <h4>1ª Etapa (Redação)</h4>
-                                        <p>19 de Janeiro de 2027</p>
-                                    </div>
-                                    <span class="lecture-time">Online</span>
-                                </div>
-                                <div class="lecture-item active">
-                                    <button class="play-btn"><i class="fa-solid fa-user-tie"></i></button>
-                                    <div class="lecture-info">
-                                        <h4>2ª Etapa (Arguição)</h4>
-                                        <p>15 a 26 Fev 2027</p>
-                                    </div>
-                                    <span class="lecture-time">Meet</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="previsto">Previstos</button>
+                        <button class="filter-btn" data-filter="processo">Em Processo</button>
+                        <button class="filter-btn" data-filter="concluido">Concluídos</button>
                     </div>
+
+                    <div class="task-list" id="task-list">
+                        <!-- Tasks generated via JS -->
+                    </div>
+                </section>
+
+                <!-- Guidelines Section -->
+                <div class="info-column">
+                    <section class="card guidelines-card">
+                        <h2><i class="fa-solid fa-map-location-dot"></i> Etapas da Seleção</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h3>1ª Etapa: Prova de Redação (Eliminatória)</h3>
+                                <p class="date"><i class="fa-regular fa-calendar"></i> 19 de Janeiro de 2027 (08h30 - 12h30)</p>
+                                <p>Realizada online (Google Classroom). Duração de 4 horas. Temas baseados em Ensino de Ciências e Matemática. Nota mínima: 7,0.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h3>2ª Etapa: Análise e Arguição (Eliminatória)</h3>
+                                <p class="date"><i class="fa-regular fa-calendar"></i> 15 a 26 de Fevereiro de 2027</p>
+                                <p>Análise do Currículo Lattes e Projeto de Pesquisa. Arguição remota via Google Meet. Nota mínima: 7,0.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card vacancies-card">
+                        <h2><i class="fa-solid fa-user-graduate"></i> Vagas Ofertadas (Doutorado)</h2>
+                        <ul class="vacancy-list">
+                            <li><span class="area biology">Biologia</span> 3 Vagas (Prof. Álvaro, Profa. Andreia, Profa. Mariana)</li>
+                            <li><span class="area math">Matemática</span> 4 Vagas (Prof. Bruno, Profa. Márcia, Profa. Pamela, Profa. Regina)</li>
+                            <li><span class="area chemistry">Química</span> 2 Vagas (Profa. Fabiele, Prof. Moisés)</li>
+                            <li><span class="area physics">Física</span> 2 Vagas (Prof. Gustavo, Profa. Irinéa)</li>
+                        </ul>
+                    </section>
                 </div>
             </div>
-        </div>
+            
+            <section class="card rules-card mt-4">
+                 <h2><i class="fa-solid fa-circle-exclamation"></i> Regras Importantes do Edital</h2>
+                 <div class="rules-grid">
+                     <div class="rule-box">
+                         <i class="fa-solid fa-file-pdf"></i>
+                         <h4>Formato de Arquivos</h4>
+                         <p>Todos os documentos devem ser enviados em formato <strong>PDF</strong>. Máximo de 10MB por arquivo. Não compactar.</p>
+                     </div>
+                     <div class="rule-box">
+                         <i class="fa-brands fa-google"></i>
+                         <h4>Conta Google</h4>
+                         <p>É obrigatório o uso de um e-mail <strong>@gmail.com</strong> para cadastro no Google Forms e acesso ao Google Classroom.</p>
+                     </div>
+                     <div class="rule-box">
+                         <i class="fa-solid fa-file-signature"></i>
+                         <h4>Projeto de Pesquisa</h4>
+                         <p>Máx 10 pág. Papel A4, Times New Roman 12. Tópicos: Título, Problema, Justificativa, Objetivos, Metodologia, Referências.</p>
+                     </div>
+                 </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Guia Interativo desenvolvido para auxiliar na candidatura ao Doutorado em Ensino de Ciências e Educação Matemática (PECEM).</p>
+        </footer>
     </div>
     
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=4"></script>
 </body>
 </html>
