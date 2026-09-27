@@ -337,6 +337,26 @@ body {
     line-height: 1.4;
 }
 
+.task-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    background: #eff6ff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.task-link:hover {
+    background: var(--primary);
+    color: white;
+}
+
 .task-status {
     position: relative;
     min-width: 150px;
